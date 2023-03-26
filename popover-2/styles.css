@@ -1,0 +1,163 @@
+body {
+  font-family: "Euclid Circular A", "Poppins";
+}
+
+:root {
+  --popover-height: 36px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.nav {
+  position: fixed;
+  top: 50%;
+  right: -10px;
+  translate: 0 -50%;
+  display: grid;
+  place-items: center;
+  gap: 8px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.nav button {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  border: 1px solid #e7e7e9;
+  background: transparent;
+  font-family: inherit;
+  cursor: inherit;
+}
+
+.nav button::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 50%;
+  right: 42px;
+  translate: 6px -50%;
+  opacity: 0;
+  visibility: hidden;
+  background: #222222;
+  color: #f7f7f7;
+  padding: 3px 6px;
+  font-size: 12px;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.nav button:hover::before {
+  opacity: 1;
+  visibility: visible;
+  translate: 0 -50%;
+}
+
+.material-symbols-outlined {
+  font-size: 18px;
+}
+
+.popover {
+  position: relative;
+  height: var(--popover-height);
+  width: 60px;
+  text-align: center;
+}
+
+.popover > img {
+  width: var(--popover-height);
+  height: var(--popover-height);
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.menu {
+  position: absolute;
+  top: 0;
+  right: 64px;
+  width: 260px;
+  padding: 16px;
+  translate: 8px 0;
+  opacity: 0;
+  visibility: hidden;
+  border-radius: 6px;
+  background: #ffffff;
+  box-shadow: 0 6px 50px rgb(0 0 0 / 16%);
+  transition: 0.3s;
+}
+
+.menu::after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  right: -5px;
+  width: 10px;
+  height: 10px;
+  rotate: 45deg;
+  background: inherit;
+}
+
+.popover:hover .menu {
+  opacity: 1;
+  visibility: visible;
+  translate: 0;
+}
+
+.popover:hover > img {
+  opacity: 0.65;
+}
+
+.menu header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+h2,
+h3 {
+  margin: 0;
+  font-weight: 400;
+  text-align: left;
+}
+
+.menu h2 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.menu h3 {
+  margin: 0;
+  font-size: 11px;
+  opacity: 0.5;
+}
+
+.menu header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.images {
+  display: flex;
+  gap: 10px;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.images::-webkit-scrollbar {
+  display: none;
+}
+
+.images img {
+  scroll-snap-align: start;
+  width: 108px;
+  min-width: 108px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+}
