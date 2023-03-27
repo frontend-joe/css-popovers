@@ -2,6 +2,8 @@ body {
   color: #5a5a5a;
   background: #f7f7f7;
   font-family: "Euclid Circular A", "Poppins";
+  background-image: url(D:\joe.jpeg);
+  background-size: cover;
 }
 
 * {
